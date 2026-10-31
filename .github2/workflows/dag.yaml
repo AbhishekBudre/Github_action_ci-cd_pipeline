@@ -5,19 +5,19 @@ on:
 
 jobs:
   job1:
-    run-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "this job-1 will execute successfully first"
 
   job2:
-    run-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
     needs:
       - job-1
     steps:
       - run: echo "this job-2 will execute only after job-1 succeeds"
 
   job3:
-    run-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
     needs:
       - job-1
       - job-2
