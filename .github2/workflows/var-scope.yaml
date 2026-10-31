@@ -11,27 +11,27 @@ jobs:
     env:
       JOB_VAR: I_AM_JOB1_SCOPED
     steps:
-      -name: inspect scope job 1 step 1
-      env:
-        STEP1_VAR: I_AM_STEP_1_SCOPED
-      run: |
-        echo "WORKFLOW_VAR: $WORKFLOW_VAR"
-        echo "JOB1_VAR: $JOB1_VAR"
-        echo "STEP1_VAR: $STEP1_VAR"
+      - name: inspect scope job 1 step 1
+        env:
+          STEP1_VAR: I_AM_STEP_1_SCOPED
+        run: |
+          echo "WORKFLOW_VAR: $WORKFLOW_VAR"
+          echo "JOB1_VAR: $JOB1_VAR"
+          echo "STEP1_VAR: $STEP1_VAR"
 
-      -name: inspect scope job 1 step 2
-      run: |
-        echo "WORKFLOW_VAR: $WORKFLOW_VAR"
-        echo "JOB1_VAR: $JOB1_VAR"
-        echo "STEP1_VAR: ${STEP1_VAR: -<UNSET>}"
+      - name: inspect scope job 1 step 2
+        run: |
+          echo "WORKFLOW_VAR: $WORKFLOW_VAR"
+          echo "JOB1_VAR: $JOB1_VAR"
+          echo "STEP1_VAR: ${STEP1_VAR: -<UNSET>}"
 
-    job2:
-      run-on: ubuntu-22.04
-      steps:
-        -name: inspect scopes job 2
-      run: |
-        echo "WORKFLOW_VAR: $WORKFLOW_VAR"
-        echo "JOB1_VAR: ${JOB1_VAR: -<UNSET>}"
-        ECHO "STEP1_VAR: ${STEP1-VAR: -<UNSET>}"
+  job2:
+    run-on: ubuntu-22.04
+    steps:
+      - name: inspect scopes job 2
+        run: |
+          echo "WORKFLOW_VAR: $WORKFLOW_VAR"
+          echo "JOB1_VAR: ${JOB1_VAR: -<UNSET>}"
+          echo "STEP1_VAR: ${STEP1-VAR: -<UNSET>}"
 
         
