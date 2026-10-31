@@ -1,0 +1,10 @@
+name: learning devops hellow world github action 1st pipline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  say-helloo-from-devops-learner-abhishek:
+    runs-on: ubuntu-22.04
+    steps: 
+      -run: echo "hello this is first hello world github pipline" 
